@@ -266,25 +266,48 @@ textarea {
   }
 }
 
+/* Add this CSS to your existing CSS file */
+
+/* Center the containers horizontally */
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Style for each unique-container */
+.unique-container {
+  margin: 20px; /* Add spacing between containers */
+  display: flex;
+  flex-direction: column; /* Display content vertically */
+  align-items: center; /* Center content horizontally */
+  text-align: center;
+
+  /* Apply the animation */
+  animation: floating 5s ease-in-out infinite; /* Adjust the duration as needed */
+}
+
+
+/* Style for header and section elements within unique-container */
+.unique-container header, .unique-container section {
+  margin: 10px;
+}
 
 
 div.unique-container {
+  /* have them side by side */
+  display: flex;
   border: deeppink 1px solid;
   background: #eee;
   width: 50%;
-  /*position this container always floating in the middle*/
-  margin-top: 3%;
-  position: relative;
-  left: 50%;
-  transform: translateX(-50%);
 
 }
 
-.unique-container{
+.unique-container {
   border-radius: 10px;
   border: green 1px solid;
   padding: 10px;
   margin: 10px;
+  display: flex;
 }
 
 ul {
@@ -292,7 +315,7 @@ ul {
   border-radius: 10px;
   list-style-type: none;
   display: block;
-  padding: 0px;
+  padding: 0;
 }
 
 li {
@@ -310,7 +333,8 @@ li > a {
   text-decoration: none;
   font-weight: bold;
   position: absolute;
-  top: 50%; left: 50%;
+  top: 50%;
+  left: 50%;
   transform: translate(-50%, -50%);
 }
 
@@ -332,3 +356,51 @@ a {
   color: dodgerblue;
 }
 
+section {
+  /* Add this CSS to your existing CSS file */
+
+  @keyframes floating {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Adjust the vertical movement as needed */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  border: 1px solid black;
+}
+
+header {
+  border: 1px solid red;
+}
+
+/* Add this CSS to your existing CSS file */
+
+@keyframes floating {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Adjust the vertical movement as needed */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Apply different animation delays to each unique-container */
+.unique-container:nth-child(1) {
+  animation-delay: .33s;
+}
+
+.unique-container:nth-child(2) {
+  animation-delay: 1.333s; /* Adjust the delay as needed */
+}
+
+.unique-container:nth-child(3) {
+  animation-delay: 2.333s; /* Adjust the delay as needed */
+}
